@@ -1229,24 +1229,63 @@ h1, h2, h3 {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238fb359' viewBox='0 0 100 100'%3E%3Cpath d='M50 30c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm-20-10c-8 0-15 7-15 15s7 15 15 15c5 0 9-2 12-5-2-3-3-7-3-11s1-8 3-11c-3-3-7-5-12-5zm40 0c-5 0-9 2-12 5 2 3 3 7 3 11s-1 8-3 11c3 3 7 5 12 5 8 0 15-7 15-15s-7-15-15-15z'/%3E%3C/svg%3E");
+    background-image: url("src/butterfly/butterfly_transparent.png");
     background-size: contain;
-    opacity: 0.3;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
 }
 
 .butterfly-1 {
     top: -30px;
     left: 20%;
+    transform: rotate(-23deg);
 }
 
 .butterfly-2 {
     top: 50px;
     right: 15%;
+    transform: rotate(17deg);
 }
 
 .butterfly-3 {
     top: -40px;
     right: 25%;
+    transform: rotate(-31deg);
+}
+
+/* Decorative butterflies */
+.details-section .decorative-butterfly {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+    background-image: url("src/butterfly/butterfly_transparent.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: transform 0.3s ease;
+}
+
+.details-section .decorative-butterfly:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    transform: rotate(-27deg);
+}
+
+.details-section .decorative-butterfly:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 2s;
+    transform: rotate(34deg);
+}
+
+.details-section .decorative-butterfly:nth-child(3) {
+    top: 15%;
+    right: 10%;
+    animation-delay: 4s;
+    transform: rotate(-19deg);
 }
 
 /* Featured Projects */
