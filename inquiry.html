@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry - Sellers Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <img src="src/optimized/script-logo-green.png" alt="Sellers Studio" class="nav-logo">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="inquiry.html" class="nav-link">Inquire</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inquiry Hero -->
+    <section class="inquiry-hero">
+        <div class="container">
+            <div class="inquiry-hero-content">
+                <div class="inquiry-hero-image">
+                    <div class="placeholder-image inquiry-hero-placeholder">
+                        <!-- Beautiful stationery/design workspace image -->
+                    </div>
+                </div>
+                <div class="inquiry-form-container">
+                    <div class="inquiry-form-header">
+                        <h1 class="inquiry-title">Let's Start Planning</h1>
+                        <p class="inquiry-subtitle">Tell us about your special event and we'll create something beautiful together.</p>
+                    </div>
+                    
+                    <form class="inquiry-form" action="https://formspree.io/f/xwpejkkl" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Your Name Here">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="E.g. name@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventDate">Wedding/Event Date</label>
+                                <input type="date" id="eventDate" name="eventDate" placeholder="MM/DD/YY">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventVenue">Wedding/Event Venue</label>
+                                <input type="text" id="eventVenue" name="eventVenue" placeholder="E.g. Old Red Museum, Dallas, TX">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guestCount">Number of Guests Invited</label>
+                                <input type="number" id="guestCount" name="guestCount" min="1" placeholder="100">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventTheme">Wedding/Event Theme/Vibe</label>
+                                <textarea id="eventTheme" name="eventTheme" rows="4" placeholder="Describe your vision, style, colors, or theme..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="plannerInfo">Planner Info (if applicable)</label>
+                                <textarea id="plannerInfo" name="plannerInfo" rows="3" placeholder="Planner name and contact information..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stationeryBudget">Ideal Stationery Budget?</label>
+                                <select id="stationeryBudget" name="stationeryBudget">
+                                    <option value="">Select a range</option>
+                                    <option value="under-1000">Under $1,000</option>
+                                    <option value="1000-2500">$1,000 - $2,500</option>
+                                    <option value="2500-5000">$2,500 - $5,000</option>
+                                    <option value="5000-7500">$5,000 - $7,500</option>
+                                    <option value="7500-10000">$7,500 - $10,000</option>
+                                    <option value="over-10000">Over $10,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>What items are you interested in?</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Save the Dates">
+                                        <span class="checkmark"></span>
+                                        Save the Dates
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Invitations">
+                                        <span class="checkmark"></span>
+                                        Invitations
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Reply Set">
+                                        <span class="checkmark"></span>
+                                        Reply Set
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Reception or Event Card">
+                                        <span class="checkmark"></span>
+                                        Reception or Event Card
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Map">
+                                        <span class="checkmark"></span>
+                                        Map
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Hand Calligraphy">
+                                        <span class="checkmark"></span>
+                                        Hand Calligraphy
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Envelope Liners">
+                                        <span class="checkmark"></span>
+                                        Envelope Liners
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Wax Seals">
+                                        <span class="checkmark"></span>
+                                        Wax Seals
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Menus">
+                                        <span class="checkmark"></span>
+                                        Menus
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Escort or Place Cards">
+                                        <span class="checkmark"></span>
+                                        Escort or Place Cards
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Table Numbers">
+                                        <span class="checkmark"></span>
+                                        Table Numbers
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Programs">
+                                        <span class="checkmark"></span>
+                                        Programs
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Welcome Bags">
+                                        <span class="checkmark"></span>
+                                        Welcome Bags
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="items[]" value="Other">
+                                        <span class="checkmark"></span>
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="referral">Were you referred by someone?</label>
+                                <input type="text" id="referral" name="referral" placeholder="Who referred you to us?">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hearAbout">How did you hear about us?</label>
+                                <select id="hearAbout" name="hearAbout">
+                                    <option value="">Select an option</option>
+                                    <option value="Google Search">Google Search</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="Wedding Planner">Wedding Planner</option>
+                                    <option value="Venue">Venue</option>
+                                    <option value="Friend/Family">Friend/Family</option>
+                                    <option value="Wedding Publication">Wedding Publication</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="additionalInfo">Additional Information</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Tell us more about your vision, timeline, or any questions you have..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Hidden field to specify recipient -->
+                        <input type="hidden" name="_to" value="sadie@sellersstudio.com">
+                        <input type="hidden" name="_subject" value="New Inquiry from Sellers Studio Website">
+                        <input type="hidden" name="_next" value="thank-you.html">
+
+                        <button type="submit" class="submit-button">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="src/optimized/primary-mark-green.png" alt="Sellers Studio" class="footer-logo">
+                </div>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="inquiry.html">Inquire</a>
+                </div>
+                <div class="footer-social">
+                    <div class="social-icon">📧</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-gallery">
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                    <div class="gallery-item placeholder-image"></div>
+                </div>
+                <div class="footer-legal">
+                    <p>© 2024 Sellers Studio | Dallas, Texas</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
