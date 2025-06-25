@@ -12,6 +12,68 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Mobile Navigation Functionality
+class MobileNavigation {
+    constructor() {
+        this.toggle = document.querySelector('.mobile-nav-toggle');
+        this.dropdown = document.querySelector('.mobile-nav-dropdown');
+        this.links = document.querySelectorAll('.mobile-nav-dropdown .nav-link');
+        this.isOpen = false;
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.toggle || !this.dropdown) return;
+        
+        // Toggle button click
+        this.toggle.addEventListener('click', () => this.toggleMenu());
+        
+        // Close menu when clicking on links
+        this.links.forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
+        });
+        
+        // Close menu when pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && 
+                !this.dropdown.contains(e.target) && 
+                !this.toggle.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+    }
+    
+    toggleMenu() {
+        if (this.isOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+    
+    openMenu() {
+        this.isOpen = true;
+        this.toggle.classList.add('active');
+        this.dropdown.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    closeMenu() {
+        this.isOpen = false;
+        this.toggle.classList.remove('active');
+        this.dropdown.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
 // Hero Carousel Functionality
 class HeroCarousel {
     constructor() {
@@ -22,6 +84,14 @@ class HeroCarousel {
         this.currentSlide = 0;
         this.slideInterval = null;
         this.autoPlayDelay = 6000; // 6 seconds
+        
+        // Touch/Swipe properties
+        this.startX = 0;
+        this.startY = 0;
+        this.distX = 0;
+        this.distY = 0;
+        this.threshold = 50; // minimum distance for swipe
+        this.carousel = document.querySelector('.hero-carousel');
         
         this.init();
     }
@@ -38,14 +108,16 @@ class HeroCarousel {
             indicator.addEventListener('click', () => this.goToSlide(index));
         });
         
+        // Add touch/swipe listeners
+        this.setupTouchEvents();
+        
         // Start autoplay
         this.startAutoPlay();
         
         // Pause autoplay on hover
-        const carousel = document.querySelector('.hero-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
-            carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+        if (this.carousel) {
+            this.carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
+            this.carousel.addEventListener('mouseleave', () => this.startAutoPlay());
         }
         
         // Handle keyboard navigation
@@ -61,6 +133,61 @@ class HeroCarousel {
                 }
             });
         }
+    }
+    
+    setupTouchEvents() {
+        if (!this.carousel) return;
+        
+        // Touch start
+        this.carousel.addEventListener('touchstart', (e) => {
+            this.startX = e.touches[0].clientX;
+            this.startY = e.touches[0].clientY;
+            this.stopAutoPlay(); // Pause autoplay during touch
+        }, { passive: true });
+        
+        // Touch move (optional: for visual feedback)
+        this.carousel.addEventListener('touchmove', (e) => {
+            if (!this.startX || !this.startY) return;
+            
+            this.distX = e.touches[0].clientX - this.startX;
+            this.distY = e.touches[0].clientY - this.startY;
+        }, { passive: true });
+        
+        // Touch end
+        this.carousel.addEventListener('touchend', (e) => {
+            if (!this.startX || !this.startY) return;
+            
+            // Calculate final distances
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            this.distX = endX - this.startX;
+            this.distY = endY - this.startY;
+            
+            // Check if it's a horizontal swipe (not vertical scroll)
+            if (Math.abs(this.distX) > Math.abs(this.distY)) {
+                // Prevent vertical scrolling if it's a horizontal swipe
+                if (Math.abs(this.distX) > this.threshold) {
+                    e.preventDefault();
+                    
+                    if (this.distX > 0) {
+                        // Swipe right - go to previous slide
+                        this.prevSlide();
+                    } else {
+                        // Swipe left - go to next slide
+                        this.nextSlide();
+                    }
+                }
+            }
+            
+            // Reset values
+            this.startX = 0;
+            this.startY = 0;
+            this.distX = 0;
+            this.distY = 0;
+            
+            // Resume autoplay after a short delay
+            setTimeout(() => this.startAutoPlay(), 1000);
+        }, { passive: false });
     }
     
     goToSlide(slideIndex) {
@@ -117,8 +244,9 @@ class HeroCarousel {
     }
 }
 
-// Initialize carousel when DOM is loaded
+// Initialize components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    new MobileNavigation();
     new HeroCarousel();
 });
 
