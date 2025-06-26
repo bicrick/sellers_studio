@@ -105,7 +105,10 @@ class HeroCarousel {
         
         // Set up indicator clicks
         this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => this.goToSlide(index));
+            indicator.addEventListener('click', () => {
+                const slideIndex = parseInt(indicator.getAttribute('data-slide')) || index;
+                this.goToSlide(slideIndex);
+            });
         });
         
         // Add touch/swipe listeners
