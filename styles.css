@@ -6,18 +6,18 @@
 }
 
 :root {
-    /* Updated Color Palette to match soft blue scheme */
-    --primary-green: #9bb0d3;
-    --light-green: #adc0dd;
-    --soft-green: #bfcfe7;
-    --pale-green: #d6e2f0;
-    --deep-green: #8aa1ca;
-    --sage-green: #a5b8d8;
-    --text-primary: #4a4a4a;
-    --text-secondary: #6a6a6a;
-    --text-light: #8a8a8a;
-    --background-cream: #fdfcfa;
-    --background-light: #f9f8f6;
+    /* Brown and Gold Color Palette */
+    --primary-green: #d4a574;          /* Gold for primary elements */
+    --light-green: #e0b788;           /* Light gold */
+    --soft-green: #ecc99c;            /* Very light gold */
+    --pale-green: #f2d5b0;            /* Pale gold */
+    --deep-green: #c8956a;            /* Deep gold */
+    --sage-green: #ddb085;            /* Muted gold */
+    --text-primary: #4a4a4a;          /* Dark grey for primary text */
+    --text-secondary: #6a6a6a;        /* Medium grey for secondary text */
+    --text-light: #8a8a8a;            /* Light grey for tertiary text */
+    --background-cream: #fdfcfa;      /* Warm cream background */
+    --background-light: #f9f8f6;      /* Light warm background */
 }
 
 body {
@@ -536,14 +536,47 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 /* Services Page Styles */
 .services-hero {
-    padding: 150px 0 80px;
+    padding-top: 120px;
+    padding-bottom: 20px;
     background-color: var(--background-cream);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(25vh + 120px);
 }
 
 .services-hero-content {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    max-width: none;
+    width: 100%;
+}
+
+.services-hero .hero-subtitle {
+    font-size: 0.9rem;
+    color: var(--primary-green);
+    text-transform: none;
+    letter-spacing: 1px;
+    margin: 1rem 0 0 0;
+    text-align: center;
+    font-weight: 400;
 }
 
 .main-services {
@@ -698,14 +731,37 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 /* Portfolio Page Styles */
 .portfolio-hero {
-    padding: 150px 0 80px;
+    padding-top: 120px;
+    padding-bottom: 20px;
     background-color: var(--background-cream);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(25vh + 120px);
 }
 
 .portfolio-hero-content {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    max-width: none;
+    width: 100%;
 }
 
 .portfolio-gallery {
@@ -1072,9 +1128,9 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 /* Buttons */
 .cta-button {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 0;
     background-color: transparent;
-    border: 2px solid var(--primary-green);
+    border: none;
     color: var(--primary-green);
     text-decoration: none;
     font-weight: 500;
@@ -1082,11 +1138,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 4px;
 }
 
 .cta-button:hover {
-    background-color: var(--primary-green);
-    color: white;
+    color: var(--deep-green);
+    border-bottom-color: var(--deep-green);
 }
 
 .cta-description {
@@ -1827,8 +1885,6 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     width: 50%;
     padding: 4rem;
     background-color: var(--background-cream);
-    overflow-y: auto;
-    max-height: calc(100vh - 120px);
     position: relative;
     z-index: 1;
 }
@@ -1874,8 +1930,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .about-image-fixed {
     flex: none;
     width: 50%;
-    position: fixed;
-    right: 0;
+    position: sticky;
     top: 120px;
     height: calc(100vh - 120px);
     background-color: var(--background-light);
@@ -1929,9 +1984,9 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .about-cta .cta-button {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 0;
     background-color: transparent;
-    border: 2px solid var(--primary-green);
+    border: none;
     color: var(--primary-green);
     text-decoration: none;
     font-weight: 500;
@@ -1939,11 +1994,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: 4px;
 }
 
 .about-cta .cta-button:hover {
-    background-color: var(--primary-green);
-    color: white;
+    color: var(--deep-green);
+    border-bottom-color: var(--deep-green);
 }
 
 /* About Split Layout Mobile */

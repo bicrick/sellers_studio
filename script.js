@@ -247,8 +247,9 @@ class HeroCarousel {
     }
 }
 
-// Initialize components when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing functionality
     new MobileNavigation();
     new HeroCarousel();
 });
