@@ -175,12 +175,19 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     cursor: pointer;
     padding: 12px;
     z-index: 1001;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .mobile-nav-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.mobile-nav-toggle:active {
+    transform: scale(0.98);
 }
 
 .hamburger {
@@ -189,28 +196,44 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     width: 24px;
     height: 18px;
     justify-content: space-between;
+    position: relative;
 }
 
 .hamburger span {
     height: 2px;
     background-color: white;
-    border-radius: 1px;
-    transition: all 0.3s ease;
+    border-radius: 2px;
+    transition: all 0.6s ease-out;
+    transform-origin: center;
+    opacity: 1;
+}
+
+/* Hamburger hover effects */
+.mobile-nav-toggle:hover .hamburger span {
+    background-color: var(--pale-green);
+}
+
+/* Active hamburger animation - more chill */
+.mobile-nav-toggle.active {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-nav-toggle.active .hamburger span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: translateY(8px) rotate(45deg);
+    background-color: white;
 }
 
 .mobile-nav-toggle.active .hamburger span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-15px);
 }
 
 .mobile-nav-toggle.active .hamburger span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: white;
 }
 
-/* Mobile Dropdown Menu */
+/* Mobile Dropdown Menu - slide down from top */
 .mobile-nav-dropdown {
     position: fixed;
     top: 0;
@@ -221,22 +244,23 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     background: var(--primary-green);
     backdrop-filter: blur(20px);
     z-index: 1000;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
     opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
+    transform: translateY(-100%);
+    transition: all 0.6s ease-out;
     padding: 2rem;
     box-sizing: border-box;
+    visibility: hidden;
 }
 
 .mobile-nav-dropdown.active {
-    display: flex;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
 }
 
 .mobile-nav-dropdown .nav-link {
@@ -246,25 +270,85 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 1px;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
-    border-radius: 8px;
+    transition: all 0.4s ease;
+    border-radius: 12px;
     min-width: 200px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
 }
+
+/* Staggered animation for menu items - only when menu is active */
+.mobile-nav-dropdown.active .nav-link {
+    animation: slideInUpChill 0.5s ease-out forwards;
+}
+
+.mobile-nav-dropdown.active .nav-link:nth-child(2) { animation-delay: 0.2s; }
+.mobile-nav-dropdown.active .nav-link:nth-child(3) { animation-delay: 0.3s; }
+.mobile-nav-dropdown.active .nav-link:nth-child(4) { animation-delay: 0.4s; }
+.mobile-nav-dropdown.active .nav-link:nth-child(5) { animation-delay: 0.5s; }
+.mobile-nav-dropdown.active .nav-link:nth-child(6) { animation-delay: 0.6s; }
 
 .mobile-nav-dropdown .nav-link:hover {
     color: var(--pale-green);
     border-bottom-color: var(--pale-green);
     background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-dropdown .nav-link:active {
+    transform: translateY(0);
 }
 
 .mobile-nav-brand {
     margin-bottom: 3rem;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Logo animation only when menu is active */
+.mobile-nav-dropdown.active .mobile-nav-brand {
+    animation: fadeInScaleChill 0.6s ease-out forwards;
+    animation-delay: 0.1s;
 }
 
 .mobile-nav-brand .nav-logo {
     height: 100px;
     filter: brightness(0) invert(1);
+    transition: transform 0.4s ease;
+}
+
+.mobile-nav-brand:hover .nav-logo {
+    transform: scale(1.02);
+}
+
+/* More chill keyframe animations */
+@keyframes slideInUpChill {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScaleChill {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Much more subtle pulse animation */
+.mobile-nav-toggle.opening {
+    animation: chillPulse 0.5s ease-out;
+}
+
+@keyframes chillPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
 
 /* Hero Section */
@@ -1242,10 +1326,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding: 2rem;
+    text-align: center;
 }
 
 .service-overlay h3 {
@@ -1254,7 +1341,16 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.3em;
+    margin: 0 0 0.5rem 0;
+}
+
+.service-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
     margin: 0;
+    opacity: 0.9;
 }
 
 .service-card-link:hover .service-overlay {
@@ -1963,6 +2059,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     text-decoration: none;
     display: block;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .service-card-link:hover {
@@ -2164,4 +2261,45 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     object-position: center;
     border-radius: 0;
     display: block;
+}
+
+/* Mobile-specific service card enhancements */
+.service-overlay {
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.service-card-link:hover .service-overlay,
+.service-card-link:active .service-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.service-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.service-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.service-card-link {
+    transition: transform 0.2s ease;
+}
+
+.service-card-link:active {
+    transform: scale(0.98);
+}
+
+/* Add a subtle border to indicate clickability */
+.service-image {
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.service-card-link:hover .service-image,
+.service-card-link:focus .service-image {
+    border-color: var(--primary-green);
 } 

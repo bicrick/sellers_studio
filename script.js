@@ -60,6 +60,14 @@ class MobileNavigation {
     }
     
     openMenu() {
+        // Add opening class for pulse animation
+        this.toggle.classList.add('opening');
+        
+        // Remove opening class after animation (longer for more chill feel)
+        setTimeout(() => {
+            this.toggle.classList.remove('opening');
+        }, 500);
+        
         this.isOpen = true;
         this.toggle.classList.add('active');
         this.dropdown.classList.add('active');
@@ -68,7 +76,7 @@ class MobileNavigation {
     
     closeMenu() {
         this.isOpen = false;
-        this.toggle.classList.remove('active');
+        this.toggle.classList.remove('active', 'opening');
         this.dropdown.classList.remove('active');
         document.body.style.overflow = ''; // Restore scrolling
     }
