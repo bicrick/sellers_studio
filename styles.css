@@ -24,22 +24,18 @@ img, video, canvas, svg {
 }
 
 :root {
-    /* Brown and Gold Color Palette */
-    --primary-green: #d4a574;          /* Gold for primary elements */
-    --light-green: #e0b788;           /* Light gold */
-    --soft-green: #ecc99c;            /* Very light gold */
-    --pale-green: #f2d5b0;            /* Pale gold */
-    --deep-green: #c8956a;            /* Deep gold */
-    --sage-green: #ddb085;            /* Muted gold */
-    --text-primary: #4a4a4a;          /* Dark grey for primary text */
-    --text-secondary: #6a6a6a;        /* Medium grey for secondary text */
-    --text-light: #8a8a8a;            /* Light grey for tertiary text */
-    --background-cream: #fdfcfa;      /* Warm cream background */
-    --background-light: #f9f8f6;      /* Light warm background */
+    /* Updated Color Palette - No Brown */
+    --color-orange: #d4704a;    /* Primary orange accent */
+    --color-lavender: #d7c4e3; /* Lavender for backgrounds */
+    --color-blue: #a8b5e0;      /* Blue accent */
+    --text-primary: #4a4a4a;    /* Dark grey for main text */
+    --text-secondary: #6a6a6a;  /* Medium grey for secondary text */
+    --background-cream: #fdfcfa;/* Cream */
+    --background-light: #f9f8f6;/* Light */
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background-cream);
@@ -55,7 +51,7 @@ body {
 
 /* Typography */
 h1, h2, h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.3em;
@@ -63,14 +59,14 @@ h1, h2, h3 {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     text-align: center;
     margin-bottom: 2rem;
     color: var(--text-secondary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.4em;
 }
 
 .section-description {
@@ -80,22 +76,24 @@ h1, h2, h3 {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
+    text-transform: none;
 }
 
 /* Ensure all descriptive text uses sans-serif */
 p, .service-description, .philosophy-description, .testimonial-text, .designer-description, .services-description, .story-text p, .form-group label, .thank-you-message p, .pricing-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
+    text-transform: none;
 }
 
 /* Quote text should remain serif for elegance */
 .testimonial-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Afrah-Light', serif;
 }
 
 /* Navigation elements should be sans-serif */
 .nav-link, .footer-nav a, .nav-brand {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Afrah-Light', sans-serif;
     letter-spacing: 0.4em;
 }
 
@@ -105,11 +103,11 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     top: 0;
     width: 100%;
     max-width: 100%;
-    background: var(--primary-green) !important;
+    background: white !important;
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--soft-green);
+    border-bottom: 1px solid var(--color-lavender);
     box-sizing: border-box;
 }
 
@@ -128,20 +126,21 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
-    color: white;
+    color: var(--text-primary);
     letter-spacing: 1px;
 }
 
 .nav-brand a {
     text-decoration: none;
-    color: white;
+    color: var(--text-primary);
 }
 
 .nav-logo {
     height: 80px;
     width: auto;
     transition: opacity 0.3s ease;
-    filter: brightness(0) invert(1);
+    /* Override logo color to exact orange */
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
 .nav-logo:hover {
@@ -155,16 +154,16 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .nav-link {
     text-decoration: none;
-    color: white;
+    color: var(--text-primary);
     font-weight: 400;
     transition: color 0.3s ease;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.4em;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
 }
 
 .nav-link:hover {
-    color: var(--pale-green);
+    color: var(--color-orange);
 }
 
 /* Mobile Navigation Hamburger */
@@ -173,7 +172,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     background: none;
     border: none;
     cursor: pointer;
-    padding: 12px;
+    padding: 0.5rem;
     z-index: 1001;
     border-radius: 8px;
     transition: all 0.4s ease;
@@ -193,15 +192,16 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .hamburger {
     display: flex;
     flex-direction: column;
-    width: 24px;
-    height: 18px;
+    width: 25px;
+    height: 20px;
     justify-content: space-between;
     position: relative;
 }
 
 .hamburger span {
+    width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: var(--text-primary);
     border-radius: 2px;
     transition: all 0.6s ease-out;
     transform-origin: center;
@@ -210,7 +210,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 /* Hamburger hover effects */
 .mobile-nav-toggle:hover .hamburger span {
-    background-color: var(--pale-green);
+    background-color: var(--color-orange);
 }
 
 /* Active hamburger animation - more chill */
@@ -220,7 +220,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .mobile-nav-toggle.active .hamburger span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
-    background-color: white;
+    background-color: var(--text-primary);
 }
 
 .mobile-nav-toggle.active .hamburger span:nth-child(2) {
@@ -230,21 +230,20 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .mobile-nav-toggle.active .hamburger span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-    background-color: white;
+    background-color: var(--text-primary);
 }
 
 /* Mobile Dropdown Menu - slide down from top */
 .mobile-nav-dropdown {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 100%;
     height: 100vh;
-    background: var(--primary-green);
+    background: white;
     backdrop-filter: blur(20px);
     z-index: 1000;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -258,14 +257,15 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .mobile-nav-dropdown.active {
+    display: flex;
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
 }
 
 .mobile-nav-dropdown .nav-link {
+    color: var(--text-primary);
     font-size: 1.5rem;
-    color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 2rem;
@@ -280,23 +280,15 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     opacity: 0;
 }
 
-/* Staggered animation for menu items - only when menu is active */
 .mobile-nav-dropdown.active .nav-link {
-    animation: slideInUpChill 0.5s ease-out forwards;
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.mobile-nav-dropdown.active .nav-link:nth-child(2) { animation-delay: 0.2s; }
-.mobile-nav-dropdown.active .nav-link:nth-child(3) { animation-delay: 0.3s; }
-.mobile-nav-dropdown.active .nav-link:nth-child(4) { animation-delay: 0.4s; }
-.mobile-nav-dropdown.active .nav-link:nth-child(5) { animation-delay: 0.5s; }
-.mobile-nav-dropdown.active .nav-link:nth-child(6) { animation-delay: 0.6s; }
-
 .mobile-nav-dropdown .nav-link:hover {
-    color: var(--pale-green);
-    border-bottom-color: var(--pale-green);
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    color: var(--color-orange);
+    background: var(--background-light);
+    border-bottom: 1px solid var(--color-orange);
 }
 
 .mobile-nav-dropdown .nav-link:active {
@@ -317,7 +309,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .mobile-nav-brand .nav-logo {
     height: 100px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(104%) contrast(97%);
     transition: transform 0.4s ease;
 }
 
@@ -378,22 +370,19 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .hero-subtitle {
     font-size: 0.9rem;
-    color: var(--primary-green);
+    color: var(--color-blue);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    color: var(--text-primary);
+    font-size: 3rem;
     font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
-    max-width: 500px;
-    font-family: 'Inter', sans-serif;
+    margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.1em;
 }
 
 .hero-image {
@@ -511,36 +500,27 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 0.2em;
 }
 
+/* Replace all undefined color variables systematically */
+
+/* Hero CTA button */
 .hero-cta {
     margin-top: 1rem;
     padding: 15px 35px;
     font-size: 1rem;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.2);
-    border: 2px solid var(--primary-green);
+    border: 2px solid var(--color-orange);
     transition: all 0.3s ease;
 }
 
 .hero-cta:hover {
-    background-color: var(--primary-green);
+    background-color: var(--color-orange);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(155, 176, 211, 0.3);
 }
 
-/* Carousel Navigation */
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 4;
-    pointer-events: none;
-}
-
+/* Carousel buttons */
 .carousel-prev,
 .carousel-next {
     width: 50px;
@@ -549,7 +529,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     font-size: 1.5rem;
-    color: var(--primary-green);
+    color: var(--color-orange);
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -561,7 +541,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .carousel-prev:hover,
 .carousel-next:hover {
-    background: var(--primary-green);
+    background: var(--color-orange);
     color: white;
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(155, 176, 211, 0.3);
@@ -591,8 +571,8 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .indicator.active,
 .indicator:hover {
-    background: var(--primary-green);
-    border-color: var(--primary-green);
+    background: var(--color-orange);
+    border-color: var(--color-orange);
     transform: scale(1.2);
 }
 
@@ -612,7 +592,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .scroll-arrow {
     font-size: 1.5rem;
-    color: var(--primary-green);
+    color: var(--color-orange);
 }
 
 .scroll-indicator span {
@@ -686,7 +666,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .services-hero .hero-subtitle {
     font-size: 0.9rem;
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-transform: none;
     letter-spacing: 1px;
     margin: 1rem 0 0 0;
@@ -755,7 +735,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-green);
+    color: var(--color-orange);
     font-weight: bold;
 }
 
@@ -775,10 +755,11 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     text-align: center;
 }
 
+/* Step numbers */
 .step-number {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: var(--primary-green);
+    color: var(--color-orange);
     margin-bottom: 1rem;
 }
 
@@ -832,10 +813,11 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     color: var(--text-secondary);
 }
 
+/* Pricing items */
 .pricing-item p {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--color-orange);
     margin-bottom: 0.5rem;
 }
 
@@ -998,8 +980,6 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .inquiry-form-container {
     background: white;
     padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
 }
 
 .inquiry-form-header {
@@ -1048,12 +1028,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 0.5px;
 }
 
+/* Form styling */
 .form-group input,
 .form-group textarea,
 .form-group select {
     padding: 12px 0;
     border: none;
-    border-bottom: 1px solid var(--soft-green);
+    border-bottom: 1px solid var(--color-blue);
     background: transparent;
     border-radius: 0;
     font-size: 1rem;
@@ -1066,13 +1047,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-bottom-color: var(--primary-green);
+    border-bottom-color: var(--color-orange);
     border-bottom-width: 2px;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-style: italic;
 }
 
@@ -1094,7 +1075,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .checkbox-item:hover {
-    background-color: var(--pale-green);
+    background-color: var(--color-lavender);
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -1105,9 +1086,9 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .submit-button {
     padding: 16px 0;
     background-color: transparent;
-    color: var(--primary-green);
+    color: var(--color-orange);
     border: none;
-    border-bottom: 2px solid var(--primary-green);
+    border-bottom: 2px solid var(--color-orange);
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -1120,15 +1101,15 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .submit-button:hover {
-    color: var(--deep-green);
-    border-bottom-color: var(--deep-green);
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
     transform: translateY(-1px);
 }
 
 /* Thank You Page Styles */
 .thank-you-section {
     padding: 150px 0 80px;
-    background-color: #fdfcfa;
+    background-color: var(--background-cream);
     text-align: center;
     position: relative;
 }
@@ -1141,13 +1122,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .thank-you-title {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: #7a7a7a;
+    color: var(--text-primary);
 }
 
 .thank-you-subtitle {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    color: #b8a992;
+    color: var(--text-secondary);
 }
 
 .thank-you-message {
@@ -1157,7 +1138,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .thank-you-message p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #6a6a6a;
+    color: var(--text-secondary);
 }
 
 .next-steps {
@@ -1167,7 +1148,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .next-steps h3 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #7a7a7a;
+    color: var(--text-primary);
 }
 
 .steps-grid {
@@ -1192,11 +1173,11 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .step h4 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #7a7a7a;
+    color: var(--text-primary);
 }
 
 .step p {
-    color: #6a6a6a;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -1210,8 +1191,8 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     display: inline-block;
     padding: 12px 30px;
     background-color: transparent;
-    border: 2px solid #7a7a7a;
-    color: #7a7a7a;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
@@ -1221,7 +1202,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .secondary-button:hover {
-    background-color: #7a7a7a;
+    background-color: var(--text-primary);
     color: white;
 }
 
@@ -1263,20 +1244,20 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     padding: 0;
     background-color: transparent;
     border: none;
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border-bottom: 2px solid var(--primary-green);
+    border-bottom: 2px solid var(--color-orange);
     padding-bottom: 4px;
 }
 
 .cta-button:hover {
-    color: var(--deep-green);
-    border-bottom-color: var(--deep-green);
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
 }
 
 .cta-description {
@@ -1378,23 +1359,16 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 /* About Preview */
 .about-preview {
-    padding: 6rem 0;
-    background: var(--background-light);
-    position: relative;
+    background: var(--color-blue);
+    border: 2px double var(--color-orange);
+    padding: 4rem 0;
     text-align: center;
 }
 
 .about-preview .section-title,
 .about-preview .section-description {
-    color: var(--text-primary);
+    color: white;
 }
-
-/* Decorative Elements */
-.decorative-elements {
-    position: relative;
-}
-
-/* Remove all butterfly styles */
 
 /* Featured Projects */
 .featured-projects {
@@ -1424,30 +1398,32 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .view-more-link {
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid var(--primary-green);
+    border-bottom: 1px solid var(--color-orange);
     padding-bottom: 2px;
     transition: color 0.3s ease;
 }
 
 .view-more-link:hover {
-    color: var(--deep-green);
+    color: var(--text-primary);
 }
 
 /* Testimonials */
 .testimonials {
     padding: 6rem 0;
-    background: var(--background-light);
+    background: white;
     position: relative;
     text-align: center;
 }
 
 .testimonials .testimonial-quote,
-.testimonials .testimonial-text,
+.testimonials .testimonial-text {
+    color: var(--color-orange);
+}
 .testimonials .testimonial-author {
-    color: var(--text-primary);
+    color: var(--color-blue);
 }
 
 .testimonial-quote {
@@ -1467,9 +1443,10 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     margin: 0 auto 2rem;
 }
 
+/* Testimonial author */
 .testimonial-author {
     font-style: italic;
-    color: var(--primary-green);
+    color: var(--color-blue);
 }
 
 /* Services Detail */
@@ -1499,7 +1476,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .services-subtitle {
     font-size: 0.9rem;
-    color: #b8a992;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -1509,21 +1486,21 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-size: 2.8rem;
     font-weight: 400;
     margin-bottom: 2rem;
-    color: #7a7a7a;
+    color: var(--text-primary);
 }
 
 .services-description {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: #6a6a6a;
+    color: var(--text-secondary);
 }
 
 .services-link {
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid var(--primary-green);
+    border-bottom: 1px solid var(--color-orange);
     padding-bottom: 2px;
 }
 
@@ -1548,7 +1525,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .designer-subtitle {
     font-size: 0.9rem;
-    color: #b8a992;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -1558,14 +1535,14 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-size: 2.8rem;
     font-weight: 400;
     margin-bottom: 2rem;
-    color: #7a7a7a;
+    color: var(--text-primary);
 }
 
 .designer-description {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: #6a6a6a;
+    color: var(--text-secondary);
 }
 
 .designer-placeholder {
@@ -1575,17 +1552,17 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .read-more-link {
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid var(--primary-green);
+    border-bottom: 1px solid var(--color-orange);
     padding-bottom: 2px;
 }
 
 /* CTA Section */
 .cta-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--light-green) 0%, var(--soft-green) 100%);
+    background: var(--color-blue);
     text-align: center;
 }
 
@@ -1603,41 +1580,40 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .cta-section .cta-button:hover {
     background-color: white;
-    color: var(--light-green);
+    color: var(--color-blue);
 }
 
 /* Footer */
 .footer {
-    background: var(--deep-green);
+    background: var(--color-blue);
     color: white;
-    padding: 3rem 0 1rem;
+    padding: 3rem 0;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    gap: 4rem;
+    margin-bottom: 2rem;
     width: 100%;
     box-sizing: border-box;
 }
 
-.footer-brand h3 {
-    font-family: 'Inter', sans-serif;
-    color: white;
-    font-size: 1.5rem;
-    line-height: 1.2;
+.footer-brand {
+    display: flex;
+    align-items: center;
 }
 
 .footer-logo {
-    height: 100px;
+    height: 80px;
     width: auto;
-    filter: brightness(0) invert(1);
     transition: opacity 0.3s ease;
+    /* Override logo color to exact orange */
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
 .footer-logo:hover {
@@ -1647,64 +1623,51 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .footer-nav {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .footer-nav a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: color 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5em;
+    font-family: 'Afrah-Light', sans-serif;
+    font-size: 1rem;
 }
 
 .footer-nav a:hover {
-    color: white;
-}
-
-.footer-social {
-    text-align: right;
-}
-
-.social-icon {
-    font-size: 1.5rem;
+    color: var(--color-orange);
 }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 2rem;
-}
-
-.footer-gallery {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.gallery-item {
-    aspect-ratio: 1;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
 .footer-legal {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 2rem;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-links {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Responsive Design */
@@ -1916,9 +1879,9 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     }
     
     .footer-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
-        gap: 1rem;
+        gap: 2rem;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -1927,16 +1890,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     .footer-nav {
         justify-content: center;
         flex-wrap: wrap;
-    }
-    
-    .footer-social {
-        text-align: center;
-    }
-    
-    .footer-gallery {
-        grid-template-columns: repeat(4, 1fr);
-        width: 100%;
-        box-sizing: border-box;
+        gap: 2rem;
     }
     
     .footer-legal {
@@ -1972,7 +1926,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 /* Legal Pages Styles */
 .legal-content {
     padding: 120px 0 80px;
-    background-color: #faf9f7;
+    background-color: var(--background-cream);
     min-height: 100vh;
 }
 
@@ -1985,14 +1939,14 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     font-weight: 500;
-    color: #2d3e3f;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .legal-intro {
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -2011,7 +1965,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 500;
-    color: #2d3e3f;
+    color: var(--text-primary);
     margin-top: 3rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -2026,7 +1980,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    color: #444;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -2039,12 +1993,12 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    color: #444;
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
 }
 
 .legal-text strong {
-    color: #2d3e3f;
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -2094,7 +2048,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-size: 0.9rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     font-weight: 400;
 }
@@ -2114,7 +2068,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 3rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -2145,7 +2099,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 2rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -2155,45 +2109,37 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     margin-bottom: 0;
 }
 
-.about-cta {
-    margin-top: 4rem;
-    text-align: left;
-    padding: 3rem 0;
-}
-
-.about-cta .cta-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 2rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    line-height: 1.2;
-    max-width: none;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
+/* About CTA button */
 .about-cta .cta-button {
     display: inline-block;
     padding: 0;
     background-color: transparent;
     border: none;
-    color: var(--primary-green);
+    color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border-bottom: 2px solid var(--primary-green);
+    border-bottom: 2px solid var(--color-orange);
     padding-bottom: 4px;
 }
 
 .about-cta .cta-button:hover {
-    color: var(--deep-green);
-    border-bottom-color: var(--deep-green);
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+}
+
+/* About CTA section */
+.about-cta {
+    background: var(--color-blue);
+    text-align: center;
+    padding: 2rem;
+}
+
+.about-cta .cta-title {
+    color: white;
 }
 
 /* About Split Layout Mobile */
@@ -2301,5 +2247,12 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .service-card-link:hover .service-image,
 .service-card-link:focus .service-image {
-    border-color: var(--primary-green);
+    border-color: var(--color-orange);
+} 
+
+@font-face {
+    font-family: 'Afrah-Light';
+    src: url('src/fonts/Afrah-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 } 
