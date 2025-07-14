@@ -1419,11 +1419,23 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .about-preview::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 2rem;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    height: 2px;
+    background: white;
+    box-shadow: 0 4px 0 white;
+}
+
+.about-preview::after {
+    content: '';
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: white;
+    box-shadow: 0 -4px 0 white;
 }
 
 .about-preview .section-title,
@@ -2194,10 +2206,10 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .about-cta-section .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0;
     background-color: transparent;
-    border: 2px solid var(--color-orange);
-    color: var(--color-orange);
+    border: none;
+    color: white;
     text-decoration: none;
     font-family: 'Afrah-Light', sans-serif;
     font-weight: 500;
@@ -2205,15 +2217,14 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
 }
 
 .about-cta-section .cta-button:hover {
-    background-color: var(--color-orange);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 112, 74, 0.3);
+    color: var(--color-orange);
+    border-bottom-color: var(--color-orange);
+    box-shadow: 0 2px 8px rgba(212, 112, 74, 0.15);
 }
 
 /* About Split Layout Mobile */
