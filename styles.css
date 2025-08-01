@@ -73,7 +73,7 @@ h1, h2, h3 {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     color: var(--text-secondary);
     font-family: 'Afrah-Light', sans-serif;
@@ -84,6 +84,8 @@ h1, h2, h3 {
 p, .service-description, .philosophy-description, .testimonial-text, .designer-description, .services-description, .story-text p, .form-group label, .thank-you-message p, .pricing-description {
     font-family: 'Afrah-Light', sans-serif;
     text-transform: none;
+    letter-spacing: 0.8px;
+    font-size: 1.65rem;
 }
 
 /* Quote text should remain serif for elegance */
@@ -288,13 +290,14 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     padding: 1.5rem 2rem;
     border-bottom: 1px solid transparent;
     transition: all 0.4s ease;
-    border-radius: 12px;
+    border-radius: 0;
     min-width: 200px;
     text-align: center;
     position: relative;
     overflow: hidden;
     transform: translateY(20px);
     opacity: 0;
+    background: transparent;
 }
 
 .mobile-nav-dropdown.active .nav-link {
@@ -304,8 +307,8 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .mobile-nav-dropdown .nav-link:hover {
     color: var(--color-orange);
-    background: var(--background-light);
-    border-bottom: 1px solid var(--color-orange);
+    background: transparent;
+    border-bottom: 2px solid var(--color-orange);
 }
 
 .mobile-nav-dropdown .nav-link:active {
@@ -709,12 +712,22 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     align-items: center;
 }
 
+.service-feature-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .service-feature:nth-child(even) .service-feature-content {
-    order: 1;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .service-feature:nth-child(even) .service-feature-image {
-    order: 2;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .service-feature-placeholder {
@@ -730,7 +743,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .service-description {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-secondary);
@@ -801,7 +814,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .pricing-description {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     margin-bottom: 3rem;
     color: var(--text-secondary);
@@ -879,7 +892,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .portfolio-gallery {
-    padding: 12rem 0 12rem 0;
+    padding: 4rem 0 0.5rem 0;
     background-color: var(--background-light);
     min-height: 60vh;
     display: flex;
@@ -905,11 +918,11 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .coming-soon-description {
     font-family: 'Afrah-Light', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
-    max-width: 500px;
+    margin-bottom: 0.5rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1045,7 +1058,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .inquiry-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     color: var(--text-secondary);
     line-height: 1.6;
 }
@@ -1140,6 +1153,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     border-bottom: 2px solid var(--color-orange);
     font-size: 1rem;
     font-weight: 400;
+    font-family: 'Afrah-Light', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
@@ -1185,7 +1199,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .thank-you-message p {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     color: var(--text-secondary);
 }
@@ -1300,7 +1314,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid var(--color-orange);
     padding-bottom: 4px;
 }
 
@@ -1402,7 +1416,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .service-content p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.7;
     color: var(--text-secondary);
 }
@@ -1416,26 +1430,22 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     position: relative;
 }
 
-.about-preview::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: white;
-    box-shadow: 0 4px 0 white;
+.about-preview .section-title {
+    margin-bottom: 1rem;
 }
 
-.about-preview::after {
-    content: '';
-    position: absolute;
-    bottom: 2rem;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: white;
-    box-shadow: 0 -4px 0 white;
+.about-preview .section-description {
+    margin-bottom: 2rem;
+}
+
+.about-preview .cta-button {
+    border-color: white;
+    color: white;
+}
+
+.about-preview .cta-button:hover {
+    background-color: white;
+    color: var(--color-blue);
 }
 
 .about-preview .section-title,
@@ -1500,19 +1510,22 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .testimonial-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Afrah-Light', sans-serif;
     font-size: 2.2rem;
-    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     margin-bottom: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    font-style: normal;
 }
 
 .testimonial-text {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto 2rem;
 }
 
@@ -1520,6 +1533,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .testimonial-author {
     font-style: italic;
     color: var(--text-secondary);
+    font-size: 1.4rem;
 }
 
 /* Services Detail */
@@ -1597,7 +1611,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 }
 
 .designer-subtitle {
-    font-size: 0.9rem;
+    font-size: 1.35rem;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1611,8 +1625,16 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     color: var(--text-primary);
 }
 
+.designer-logo {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(95%);
+    /* This filter converts the logo to match the text color #4a4a4a */
+}
+
 .designer-description {
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-secondary);
@@ -1628,19 +1650,20 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     color: var(--color-orange);
     text-decoration: none;
     font-weight: 500;
+    font-size: 1.3rem;
     border-bottom: 1px solid var(--color-orange);
     padding-bottom: 2px;
 }
 
 /* CTA Section */
 .cta-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: var(--color-blue);
     text-align: center;
 }
 
 .cta-title {
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
     margin-bottom: 2rem;
     font-weight: 400;
@@ -1685,8 +1708,8 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     height: 80px;
     width: auto;
     transition: opacity 0.3s ease;
-    /* Override logo color to exact orange */
-    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    /* Override logo color to white to match footer text */
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 .footer-logo:hover {
@@ -1904,10 +1927,40 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     .services-content,
     .designer-content,
     .about-hero-content,
-    .philosophy-content,
+    .philosophy-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
     .service-feature {
         grid-template-columns: 1fr;
         gap: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .service-feature .service-feature-content {
+        order: 2;
+        grid-column: unset;
+        grid-row: unset;
+    }
+    
+    .service-feature .service-feature-image {
+        order: 1;
+        grid-column: unset;
+        grid-row: unset;
+    }
+    
+    .service-feature:nth-child(even) .service-feature-content {
+        order: 2;
+        grid-column: unset;
+        grid-row: unset;
+    }
+    
+    .service-feature:nth-child(even) .service-feature-image {
+        order: 1;
+        grid-column: unset;
+        grid-row: unset;
     }
     
     .inquiry-hero-content {
@@ -2018,7 +2071,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .legal-intro {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
@@ -2121,7 +2174,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     font-size: 0.9rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--color-blue);
+    color: var(--text-primary);
     margin-bottom: 1rem;
     font-weight: 400;
 }
@@ -2139,12 +2192,13 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .about-text-content .hero-description {
     font-family: 'Afrah-Light', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.7;
     color: var(--text-primary);
     margin-bottom: 3rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    letter-spacing: 0.8px;
 }
 
 .about-image-fixed {
@@ -2170,7 +2224,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .story-text p {
     font-family: 'Afrah-Light', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.65rem;
     line-height: 1.8;
     color: var(--text-primary);
     margin-bottom: 2rem;
@@ -2344,8 +2398,8 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 /* Mobile navigation active state */
 .mobile-nav-dropdown .nav-link.active {
     color: var(--color-orange);
-    background: var(--background-light);
-    box-shadow: inset 0 -2px 0 var(--color-orange);
+    background: transparent;
+    border-bottom: 2px solid var(--color-orange);
     font-weight: 500;
 }
 
