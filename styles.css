@@ -1359,7 +1359,6 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     margin-bottom: 0;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
     aspect-ratio: 1 / 1;
 }
 
@@ -1405,7 +1404,6 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .service-placeholder {
     width: 100%;
     height: 300px;
-    border-radius: 8px;
 }
 
 .service-content h3 {
