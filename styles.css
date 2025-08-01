@@ -1745,8 +1745,12 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-legal p {
+    font-size: 1.2rem;
 }
 
 .footer-links {
