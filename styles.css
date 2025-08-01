@@ -1035,7 +1035,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 .inquiry-hero-placeholder {
     width: 100%;
     aspect-ratio: 1 / 1;
-    border-radius: 8px;
+    border-radius: 0;
 }
 
 .inquiry-form-container {
@@ -2169,7 +2169,7 @@ p, .service-description, .philosophy-description, .testimonial-text, .designer-d
 
 .about-text-content .hero-subtitle {
     font-family: 'Afrah-Light', sans-serif;
-    font-size: 0.9rem;
+    font-size: 2rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--text-primary);
